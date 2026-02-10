@@ -17,4 +17,4 @@ class Deck:
         return self.cards.pop() if self.cards else None
     
     def __str__(self):
-        return ', '.join(str(card) for card in self.cards)
+        return '\n'.join('[' + str(card) + ']' for card in self.cards)
