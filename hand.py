@@ -6,7 +6,7 @@ class Hand:
         self.cards.append(card)
 
     def __str__(self):
-        return ', '.join(str(card) for card in self.cards)
+        return ' '.join(str(card) for card in self.cards)
     
     def get_value(self):
         value = 0
@@ -26,4 +26,4 @@ class Hand:
                         break
         return value
     
-    
+
