@@ -2,6 +2,9 @@ class Card:
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
-    
+        self.hidden = False
+
     def __str__(self):
-        return f"{self.rank} of {self.suit}"
+        if self.hidden:
+            return "[ ? ]"
+        return f"[ {self.rank} of {self.suit} ]"
