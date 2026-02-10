@@ -5,11 +5,15 @@ from player import Player
 def main():
     deck = Deck()
     deck.shuffle()
-    player = Player("Eddie")
+    player1 = Player("Eddie")
+    player2 = Player("Dealer")
     for _ in range(2):
         dealt_card = deck.deal_card()
-        player.recieve_card(dealt_card)
-    print(player)
+        player1.recieve_card(dealt_card)
+        dealt_card = deck.deal_card()
+        player2.recieve_card(dealt_card)
+    print(player1)
+    print(player2)
 
 if __name__ == "__main__":
     main()
