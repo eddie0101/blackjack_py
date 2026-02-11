@@ -1,2 +1,4 @@
 *.pyc
 __pycache__/
+
+blackjack_workspace.code-workspace
