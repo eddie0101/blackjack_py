@@ -5,16 +5,34 @@ from player import Player
 def main():
     deck = Deck()
     deck.shuffle()
-    player1 = Player("Eddie")
-    player2 = Player("Dealer")
+    players = []
+    players.append(Player("Eddie"))
+    players.append(Player("Dealer"))
     for _ in range(2):
-        dealt_card = deck.deal_card()
-        player1.recieve_card(dealt_card)
-        dealt_card = deck.deal_card()
-        player2.recieve_card(dealt_card)
-    print(player1)
-    print(player2)
-
+        for player in players:
+            dealt_card = deck.deal_card()
+            player.receive_card(dealt_card)
+    
+    for player in players:
+        print(player)
+    
+    while True:
+        for player in players:
+            if player.name == "Dealer":
+                continue
+            action = input(f"{player.name}, do you want to hit or stand? (h/s): ")
+            if action.lower() == 'h':
+                dealt_card = deck.deal_card()
+                player.receive_card(dealt_card)
+                print(player)
+                if player.hand.get_value() > 21:
+                    print(f"{player.name} busts! Dealer wins.")
+                    return
+            elif action.lower() == 's':
+                print(f"{player.name} stands with a hand value of {player.hand.calculate_value()} points.")
+                break
+            else:
+                print("Invalid input. Please enter 'h' to hit or 's' to stand.")
 if __name__ == "__main__":
     main()
 
