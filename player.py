@@ -5,7 +5,7 @@ class Player:
         self.name = name
         self.hand = Hand()
     
-    def recieve_card(self, card):
+    def receive_card(self, card):
         if self.name == "Dealer" and len(self.hand.cards) == 0:
             card.hidden = True
         self.hand.add_card(card)
