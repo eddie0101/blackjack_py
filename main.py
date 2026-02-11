@@ -16,10 +16,10 @@ def main():
     for player in players:
         print(player)
     
-    while True:
-        for player in players:
-            if player.name == "Dealer":
-                continue
+    for player in players:
+        if player.name == "Dealer":
+            continue
+        while True:
             action = input(f"{player.name}, do you want to hit or stand? (h/s): ")
             if action.lower() == 'h':
                 dealt_card = deck.deal_card()
@@ -27,12 +27,16 @@ def main():
                 print(player)
                 if player.hand.get_value() > 21:
                     print(f"{player.name} busts! Dealer wins.")
-                    return
+                    break
+                elif player.hand.get_value() == 21:
+                    print(f"{player.name} Blackjack! ")
+                    break
             elif action.lower() == 's':
                 print(f"{player.name} stands with a hand value of {player.hand.get_value()} points.")
                 break
             else:
                 print("Invalid input. Please enter 'h' to hit or 's' to stand.")
+                
 if __name__ == "__main__":
     main()
 
