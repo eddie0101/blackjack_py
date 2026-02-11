@@ -29,7 +29,7 @@ def main():
                     print(f"{player.name} busts! Dealer wins.")
                     return
             elif action.lower() == 's':
-                print(f"{player.name} stands with a hand value of {player.hand.calculate_value()} points.")
+                print(f"{player.name} stands with a hand value of {player.hand.get_value()} points.")
                 break
             else:
                 print("Invalid input. Please enter 'h' to hit or 's' to stand.")
