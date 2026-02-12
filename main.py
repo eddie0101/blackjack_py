@@ -59,6 +59,28 @@ def main():
             else:
                 print("Invalid input. Please enter 'h' to hit or 's' to stand.")
                 
+
+    # Determine winner
+    # if player busts, dealer wins
+    # if dealer busts, player wins
+    # if both player and dealer have same hand value, it's a tie
+    # if player hand value > dealer hand value, player wins
+    # if dealer hand value > player hand value, dealer wins
+
+    print("\nFinal Results:")
+    dealer = players[-1]
+    for player in players[:-1]:
+        if player.hand.get_value() > 21:
+            print(f"{player.name} busts! Dealer wins. ")
+        elif dealer.hand.get_value() > 21:
+            print(f"{dealer.name} busts! {player.name} wins. ")
+        elif player.hand.get_value() == dealer.hand.get_value():
+            print(f"{player.name} and {dealer.name} tie with a hand value of {player.hand.get_value()} points.")
+        elif player.hand.get_value() > dealer.hand.get_value():
+            print(f"{player.name} wins with a hand value of {player.hand.get_value()} points! ")
+        else:
+            print(f"{dealer.name} wins with a hand value of {dealer.hand.get_value()} points! ")
+    
 if __name__ == "__main__":
     main()
 
