@@ -36,7 +36,7 @@ def main():
                 dealt_card = deck.deal_card()
                 player.receive_card(dealt_card)
                 print(player)
-                return
+            break
         # Player's turn
         while True:
             print()
