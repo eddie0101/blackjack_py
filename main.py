@@ -90,6 +90,11 @@ def main():
             print(f"{player.name} wins with a hand value of {player.hand.get_value()} points! ")
         else:
             print(f"{dealer.name} wins with a hand value of {dealer.hand.get_value()} points! ")
+            player.chips += bet_amounts[player.name] * 2 # Player wins double the bet
+    
+    print("\nUpdated chip counts:")
+    for player in players[:-1]:
+        print(f"{player.name}: {player.chips} chips")
     
 if __name__ == "__main__":
     main()
