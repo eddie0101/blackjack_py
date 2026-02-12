@@ -3,6 +3,9 @@ from deck import Deck
 from hand import Hand
 from player import Player
 def main():
+
+    os.system('cls')
+
     deck = Deck()
     deck.shuffle()
     players = []
