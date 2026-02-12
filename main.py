@@ -81,13 +81,16 @@ def main():
     dealer = players[-1]
     for player in players[:-1]:
         if player.hand.get_value() > 21:
-            print(f"{player.name} busts! Dealer wins. ")
+            print(f"{player.name} busts! Dealer wins. ") # Player loses bet
         elif dealer.hand.get_value() > 21:
             print(f"{dealer.name} busts! {player.name} wins. ")
+            player.chips += bet_amounts[player.name] * 2 # Player wins double the bet
         elif player.hand.get_value() == dealer.hand.get_value():
             print(f"{player.name} and {dealer.name} tie with a hand value of {player.hand.get_value()} points.")
+            player.chips += bet_amounts[player.name]  # Return bet to player
         elif player.hand.get_value() > dealer.hand.get_value():
             print(f"{player.name} wins with a hand value of {player.hand.get_value()} points! ")
+            player.chips += bet_amounts[player.name] * 2 # Player wins double the bet
         else:
             print(f"{dealer.name} wins with a hand value of {dealer.hand.get_value()} points! ")
             player.chips += bet_amounts[player.name] * 2 # Player wins double the bet
