@@ -13,17 +13,21 @@ def main():
             dealt_card = deck.deal_card()
             player.receive_card(dealt_card)
     
+    print()
     for player in players:
         print(player)
     
     for player in players:
         if player.name == "Dealer":
             continue
+        # Player's turn
         while True:
+            print()
             action = input(f"{player.name}, do you want to hit or stand? (h/s): ")
             if action.lower() == 'h':
                 dealt_card = deck.deal_card()
                 player.receive_card(dealt_card)
+                print()
                 print(player)
                 if player.hand.get_value() > 21:
                     print(f"{player.name} busts! Dealer wins.")
