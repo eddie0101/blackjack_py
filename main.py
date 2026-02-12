@@ -18,6 +18,16 @@ def main():
     if players[-1].name != "Dealer":
         players[0], players[-1] = players[-1], players[0]
 
+    bet_amounts = {}
+    for player in players[:-1]:
+        print(f"Welcome {player.name}! You have {player.chips} chips to bet with. ")
+        bet = input(f"{player.name}, how much would you like to bet? (Enter a number): ")
+        while not bet.isdigit() or int(bet) <= 0 or int(bet) > player.chips:
+            print("Invalid bet. Please enter a positive number that does not exceed your available chips.")
+            bet = input(f"{player.name}, how much would you like to bet? (Enter a number): ")
+        player.chips -= int(bet)
+        print(f"{player.name} has bet {bet} chips. Remaining chips: {player.chips}")
+        bet_amounts[player.name] = int(bet)
     for _ in range(2):
         for player in players:
             dealt_card = deck.deal_card()
