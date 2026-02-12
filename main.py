@@ -11,6 +11,7 @@ def main():
     deck.shuffle()
     players = []
     players.append(Player("Eddie"))
+    players.append(Player("Bob"))
     players.append(Player("Dealer"))
 
     # swap dealer with last player if dealer is not last
