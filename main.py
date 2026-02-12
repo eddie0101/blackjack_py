@@ -8,6 +8,11 @@ def main():
     players = []
     players.append(Player("Eddie"))
     players.append(Player("Dealer"))
+
+    # swap dealer with last player if dealer is not last
+    if players[-1].name != "Dealer":
+        players[0], players[-1] = players[-1], players[0]
+
     for _ in range(2):
         for player in players:
             dealt_card = deck.deal_card()
@@ -19,7 +24,15 @@ def main():
     
     for player in players:
         if player.name == "Dealer":
-            continue
+            player.hand.cards[0].hidden = False
+            print()
+            print(player)
+            while player.hand.get_value() < 17:
+                print(f"{player.name} hits.")
+                dealt_card = deck.deal_card()
+                player.receive_card(dealt_card)
+                print(player)
+                return
         # Player's turn
         while True:
             print()
