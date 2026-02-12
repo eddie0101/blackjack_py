@@ -4,6 +4,7 @@ class Player:
     def __init__(self, name):
         self.name = name
         self.hand = Hand()
+        self.chips = 1000  # Starting chips for betting
     
     def receive_card(self, card):
         if self.name == "Dealer" and len(self.hand.cards) == 0:
