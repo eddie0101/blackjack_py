@@ -93,7 +93,7 @@ def main():
             player.chips += bet_amounts[player.name] * 2 # Player wins double the bet
         else:
             print(f"{dealer.name} wins over {player.name} with a hand value of {dealer.hand.get_value()} points! ")
-            player.chips += bet_amounts[player.name] * 2 # Player wins double the bet
+            # Player loses bet
     
     print("\nUpdated chip counts:")
     for player in players[:-1]:
