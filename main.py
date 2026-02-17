@@ -23,7 +23,12 @@ def main():
         bet_amounts = {}
         for player in players[:-1]:
             print(f"Welcome {player.name}! You have {player.chips} chips to bet with. ")
+            print("You can leave the game at any time by entering 'q' when prompted for a bet.")
             bet = input(f"{player.name}, how much would you like to bet? (Enter a number): ")
+            if bet.lower() == 'q':
+                print(f"{player.name} has left the game.")
+                players.remove(player)
+                continue
             while not bet.isdigit() or int(bet) <= 0 or int(bet) > player.chips:
                 print("Invalid bet. Please enter a positive number that does not exceed your available chips.")
                 bet = input(f"{player.name}, how much would you like to bet? (Enter a number): ")
