@@ -12,7 +12,7 @@ class Player:
         self.hand.add_card(card)
     
     def __str__(self):
-        if self.hand.cards[0].hidden == True and len(self.hand.cards) > 0:
+        if len(self.hand.cards) > 0 and self.hand.cards[0].hidden == True:
             return f"{self.name}'s hand: {self.hand} (Value: ?)"
         return f"{self.name}'s hand: {self.hand} (Value: {self.hand.get_value()})"
     
