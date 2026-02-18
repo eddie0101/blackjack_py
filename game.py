@@ -149,7 +149,7 @@ def _resolve_round(players: List[Player], bet_amounts: Dict[str, int]) -> None:
     for player in players[:-1]:
         print(f"{player.name}: {player.chips} chips")
 
-
+# cli - command line interface
 def run_cli_game() -> None:
     clear_screen()
 
