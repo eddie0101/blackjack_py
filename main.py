@@ -96,6 +96,9 @@ def main():
             elif player.hand.get_value() > dealer.hand.get_value():
                 print(f"{player.name} wins with a hand value of {player.hand.get_value()} points! ")
                 player.chips += bet_amounts[player.name] * 2 # Player wins double the bet
+            elif player.hand.get_value() == 21:
+                print(f"{player.name} wins with a hand value of 21 points! ")
+                player.chips += bet_amounts[player.name] * 2.5 # Player wins 2.5 times the bet for Blackjack
             else:
                 print(f"{dealer.name} wins over {player.name} with a hand value of {dealer.hand.get_value()} points! ")
                 # Player loses bet
